@@ -16,5 +16,5 @@ class Person < ApplicationRecord
 
   validates :title, inclusion: { in: titles.values }, allow_nil: true
   validates_associated :details
-  validates :name, presence: true
+  validates :name, presence: true, length: { in: 2..72 }
 end

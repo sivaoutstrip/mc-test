@@ -1,8 +1,11 @@
-<div id="<%= dom_id person %>" class='p-2 pr-8 mb-2 border border-dashed border-black flex justify-between items-center'>
-  <div class=''>
-    <%= link_to person.name.titleize, person_path(person), { class: 'underline underline-offset-4 cursor-pointer' } %>
+<div id="<%= dom_id person %>" class='p-2 pr-4 mb-2 border border-dashed border-black flex justify-between items-center'>
+  <div>
+    <%= person.name.titleize %>
   </div>
   <div>
+    <span class="mr-6 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">
+      <%= link_to 'Show', person_path(person) %>
+    </span>
     <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
       <%= link_to 'Show Details', person_details_by_turbo_path(person.id), data: { turbo_frame: 'details' } %>
     </span>

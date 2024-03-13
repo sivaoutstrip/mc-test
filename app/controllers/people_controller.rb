@@ -78,6 +78,6 @@ class PeopleController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def person_params
-    params.require(:person).permit(:name, details_attributes: %i[id email title phone age age _destroy])
+    params.require(:person).permit(:name, :title, :age, details_attributes: %i[id email phone _destroy])
   end
 end

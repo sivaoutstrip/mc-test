@@ -6,8 +6,6 @@ class CreateDetails < ActiveRecord::Migration[7.1]
       t.belongs_to :person, index: true, null: false
       t.string :email, null: false
       t.string :phone
-      t.string :title
-      t.integer :age
 
       t.timestamps
     end

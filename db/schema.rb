@@ -15,8 +15,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_140610) do
     t.integer "person_id", null: false
     t.string "email", null: false
     t.string "phone"
-    t.string "title"
-    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_details_on_person_id"
@@ -24,6 +22,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_140610) do
 
   create_table "people", force: :cascade do |t|
     t.string "name", null: false
+    t.string "title"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_people_on_name"

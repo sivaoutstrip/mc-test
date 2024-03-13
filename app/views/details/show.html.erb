@@ -1,6 +1,11 @@
+<div class='pb-3 flex justify-between items-center'>
+  <h1 class='text-2xl font-medium'><%= @person.name %>'s detail</h1>
+  <div>
+    <%= link_to "Home", person_path(@person), class: 'bg-lime-500 border border-lime-500 text-white px-4 py-1 cursor-pointer' %>
+  </div>
+</div>
 <%= render @detail %>
 <div>
   <%= link_to "Edit this detail", edit_person_detail_path(@person, @detail) %> |
-  <%= link_to "Back to details", person_path(@person) %>
   <%= button_to "Destroy this detail", person_detail_path(@person, @detail), method: :delete %>
 </div>

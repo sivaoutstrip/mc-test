@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>McTest</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+  <body>
+    <% if notice %>
+      <div class='p-2 relative min-w-full block bg-green-300 text-green-800 text-center'><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class='p-2 relative min-w-full block bg-blue-200 text-blue-600 text-center'><%= alert %></div>
+    <% end %>
+    <main class='p-5'>
+      <%= yield %>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<div id="<%= dom_id detail %>" class='border border-slate-400 p-3 rounded-md mb-3 mr-3'>
+  <div>
+    <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Email</span>
+    <%= detail.email %>
+  </div>
+  <div class='flex my-3'>
+    <div>
+      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Title</span>
+      <%= detail.title || '--' %>
+    </div>
+    <div class='ml-5'>
+      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Age</span>
+      <%= detail.age || '--' %>
+    </div>
+  </div>
+  <div>
+    <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Phone</span>
+    <%= detail.phone || '--' %>
+  </div>
+</div>

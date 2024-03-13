@@ -1,0 +1,11 @@
+<div class='flex justify-between items-center mx-2'>
+  <h1 class='text-2xl font-medium'>Update Person</h1>
+  <div class='flex'>
+    <%= button_to @person, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure to delete this person?'} , class: 'ml-5 border border-red-500 px-4 py-1 text-red-500 cursor-pointer' do %>
+      Delete
+    <% end %>
+    <%= link_to "Home", people_path, class: 'ml-3 border border border-lime-500 bg-lime-500 px-4 py-1 text-white cursor-pointer' %>
+  </div>
+</div>
+<%= render "form", person: @person %>
+<br>

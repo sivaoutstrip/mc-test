@@ -1,0 +1,33 @@
+<%= form_with(url: route, model: detail) do |form| %>
+  <% if detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+      <ul>
+        <% detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div class='mt-2'>
+      <%= form.label :email %>
+      <%= form.text_field :email, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
+    </div>
+    <div class='mt-2'>
+      <%= form.label :age %>
+      <%= form.number_field :age, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
+    </div>
+    <div class='mt-2'>
+      <%= form.label :phone %>
+      <%= form.text_field :phone, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
+    </div>
+    <div class='mt-2'>
+      <%= form.label :title %>
+      <%= form.select :title, Detail.titles.to_a, {}, { class: 'block min-w-full p-2 border border-black mt-1' } %>
+    </div>
+    <div class='mt-4'>
+      <%= form.submit 'Save', class: 'bg-blue-500 text-white cursor-white px-4 py-1 block min-w-full' %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class='mx-4 flex justify-between items-center'>
+  <h1 class='font-medium text-3xl'>New person</h1>
+  <%= link_to "Home", people_path, class: 'bg-lime-500 border border-lime-500 py-1 px-4 text-white' %>
+</div>
+<div class='p-2'>
+  <%= render "form", person: @person %>
+</div>
+<br>

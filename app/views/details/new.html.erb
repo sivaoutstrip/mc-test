@@ -1,0 +1,6 @@
+<h1>New detail</h1>
+<%= render "form", person: @person, detail: @detail, route: "/people/#{@person.id}/details" %>
+<br>
+<div>
+  <%= link_to "Back to details", person_details_path %>
+</div>

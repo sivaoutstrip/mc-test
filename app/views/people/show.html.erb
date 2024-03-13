@@ -1,0 +1,32 @@
+<div class='flex justify-between items-center mb-5'>
+  <div>
+    <%= link_to "Home", people_path, class: 'border border-lime-500 text-white cursor-pointer bg-lime-500 px-4 py-1' %>
+  </div>
+  <div>
+    <%= link_to "Edit", edit_person_path(@person), class: 'border border-blue-500 text-blue-500 cursor-pointer bg-white px-4 py-1' %>
+  </div>
+</div>
+<%= render @person %>
+<% if @person.details.present? %>
+  <div class='text-2xl mb-2 font-medium'>Details</div>
+  <% @person.details.each do |detail| %>
+    <div class='border border-dashed border-black p-3 mb-3'>
+      <div class='flex justify-between items-start'>
+        <div>
+          <div class='mb-2'>Email: <%= detail.email || '--' %></div>
+          <div class='mb-2'>Phone: <%= detail.phone || '--' %></div>
+          <div class='mb-2'>Age: <%= detail.age || '--' %></div>
+          <div class='mb-2'>Title: <%= detail.title || '--' %></div>
+        </div>
+        <div>
+          <%= link_to "Edit", edit_person_detail_path(@person, detail), class: 'border border-blue-500 text-blue-500 cursor-pointer bg-white px-4 py-1' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class='p-5 text-center'>
+    <div class='mb-2 text-2xl font-medium text-yellow-500'>No details available</div>
+  </div>
+<% end %>
+<%= link_to "Add new detail", new_person_detail_path(@person), class: 'block min-w-full text-center border border-lime-500 text-white cursor-pointer bg-lime-500 px-4 py-2' %>

@@ -1,0 +1,6 @@
+<%= render @detail %>
+<div>
+  <%= link_to "Edit this detail", edit_person_detail_path(@person, @detail) %> |
+  <%= link_to "Back to details", person_path(@person) %>
+  <%= button_to "Destroy this detail", person_detail_path(@person, @detail), method: :delete %>
+</div>

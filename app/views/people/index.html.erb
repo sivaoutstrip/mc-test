@@ -1,0 +1,18 @@
+<div class='flex justify-between items-center'>
+  <h1 class='text-2xl font-medium'>People</h1>
+  <%= link_to "New person", new_person_path, class: 'bg-blue-500 px-4 py-1 text-white pointer-cursor' %>
+</div>
+<% if @people.present? %>
+  <div class='md:grid grid-cols-2 gap-4'>
+    <div id="people" data-controller='nested-form' class='pt-5'>
+      <% @people.each do |person| %>
+        <%= render person %>
+      <% end %>
+    </div>
+    <div class='my-5'>
+      <%= turbo_frame_tag('details') %>
+    </div>
+  </div>
+<% else %>
+  <%= link_to 'Click here to create new person', new_person_path, class: 'block min-w-full mt-5 pt-5 text-xl underline underline-offset-2 text-blue-500 text-center' %>
+<% end %>

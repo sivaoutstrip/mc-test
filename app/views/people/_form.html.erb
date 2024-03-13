@@ -1,0 +1,28 @@
+<%= form_with(model: @person, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' }) do |form| %>
+  <% if @person.errors.any? %>
+    <div style='color: red'>
+      <ul>
+        <% @person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='m-2'>
+    <%= form.label 'name' %>
+    <%= form.text_field 'name', class: 'block min-w-full mt-1 border border-black p-2 mb-3', required: true %>
+    <template data-nested-form-target="template">
+      <%= form.fields_for :details, Detail.new, child_index: 'NEW_RECORD' do |detail_fields| %>
+        <%= render "detail_form", form: detail_fields %>
+      <% end %>
+    </template>
+    <%= form.fields_for :details do |detail_fields| %>
+      <%= render "detail_form", form: detail_fields %>
+    <% end %>
+    <div data-nested-form-target="target"></div>
+    <button type="button" data-action="nested-form#add" class='min-w-50 mt-2 border border-lime-500 text-lime-500 px-4 py-1 pointer-cursor'>Add Details</button>
+    <div class='mt-5'>
+      <%= form.submit 'Save', class: 'block min-w-full bg-blue-500 text-white p-2 pointer-cursor' %>
+    </div>
+  </div>
+<% end %>

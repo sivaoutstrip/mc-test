@@ -11,11 +11,11 @@
   <div class='m-2'>
     <div>
       <%= form.label 'name' %>
-      <%= form.text_field 'name', class: 'block min-w-full mt-1 border border-black p-2 mb-3', required: true %>
+      <%= form.text_field 'name', minlength: 2, maxlength: 72, class: 'block min-w-full mt-1 border border-black p-2 mb-3', required: true %>
     </div>
     <div>
       <%= form.label 'age' %>
-      <%= form.number_field 'age', class: 'block min-w-full mt-1 border border-black p-2 mb-3' %>
+      <%= form.number_field 'age', min: 1, max: 100, class: 'block min-w-full mt-1 border border-black p-2 mb-3' %>
     </div>
     <div>
       <%= form.label 'title' %>

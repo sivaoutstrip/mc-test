@@ -1,20 +1,13 @@
 <div id="<%= dom_id detail %>" class='border border-slate-400 p-3 rounded-md mb-3'>
-  <div>
-    <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Email</span>
+  <div class='mb-2'>
+    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">Email</span>
     <%= detail.email %>
   </div>
-  <div class='flex my-3'>
-    <div>
-      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Title</span>
-      <%= detail.title || '--' %>
-    </div>
-    <div class='ml-5'>
-      <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Age</span>
-      <%= detail.age || '--' %>
-    </div>
-  </div>
   <div>
-    <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Phone</span>
+    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">Phone</span>
     <%= detail.phone || '--' %>
+  </div>
+  <div class='mt-2 flex justify-end items-center'>
+    <%= link_to "Edit", edit_person_detail_path(@person, detail), { data: { turbo: false }, class: 'border border-blue-500 text-blue-500 cursor-pointer px-4 py-1' } %>
   </div>
 </div>

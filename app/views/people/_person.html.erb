@@ -1,13 +1,26 @@
-<div id="<%= dom_id person %>" class='p-2 pr-4 mb-2 border border-dashed border-black flex justify-between items-center'>
-  <div>
+<div id="<%= dom_id person %>" class='p-4 mb-4 border border-dashed border-black'>
+  <div class='mb-2'>
+    <span class="mr-1 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">Name</span>
     <%= person.name.titleize %>
   </div>
-  <div>
-    <span class="mr-6 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">
-      <%= link_to 'Show', person_path(person) %>
-    </span>
-    <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-      <%= link_to 'Show Details', person_details_by_turbo_path(person.id), data: { turbo_frame: 'details' } %>
-    </span>
+  <div class='flex items-center mb-1'>
+    <div class='mr-8'>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">Age</span>
+      <%= person.age || '--' %>
+    </div>
+    <div>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10">Title</span>
+      <%= person.title %>
+    </div>
   </div>
+  <% if action_name == 'index' %>
+    <div class='flex justify-end items-center'>
+      <span class="mr-2 inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+        <%= link_to 'Show', person_path(person) %>
+      </span>
+      <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+        <%= link_to 'Show Details', person_details_path(person.id), data: { turbo_frame: 'details' } %>
+      </span>
+    </div>
+  <% end %>
 </div>

@@ -12,19 +12,11 @@
   <div>
     <div class='mt-2'>
       <%= form.label :email %>
-      <%= form.text_field :email, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
-    </div>
-    <div class='mt-2'>
-      <%= form.label :age %>
-      <%= form.number_field :age, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
+      <%= form.email_field :email, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
     </div>
     <div class='mt-2'>
       <%= form.label :phone %>
-      <%= form.text_field :phone, required: true, class: 'block min-w-full p-2 border border-black mt-1' %>
-    </div>
-    <div class='mt-2'>
-      <%= form.label :title %>
-      <%= form.select :title, Detail.titles.to_a, {}, { class: 'block min-w-full p-2 border border-black mt-1' } %>
+      <%= form.text_field :phone, class: 'block min-w-full p-2 border border-black mt-1' %>
     </div>
     <div class='mt-4'>
       <%= form.submit 'Save', class: 'bg-blue-500 text-white cursor-white px-4 py-1 block min-w-full' %>

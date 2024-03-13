@@ -1,10 +1,15 @@
 <div class='flex justify-between items-center mb-5'>
-  <div>
-    <%= link_to "Home", people_path, class: 'border border-lime-500 text-white cursor-pointer bg-lime-500 px-4 py-1' %>
-  </div>
-  <div>
-    <%= link_to "Edit", edit_person_path(@person), class: 'border border-blue-500 text-blue-500 cursor-pointer bg-white px-4 py-1' %>
+  <h1 class='text-2xl font-medium'>Person: <%= @person.name %>'s data</h1>
+  <div class='flex justify-end items-center'>
+    <div>
+      <%= link_to "Home", people_path, class: 'mr-5 border border-lime-500 text-white cursor-pointer bg-lime-500 px-4 py-1' %>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_person_path(@person), class: 'border border-blue-500 text-blue-500 cursor-pointer bg-white px-4 py-1' %>
+    </div>
   </div>
 </div>
 <%= render @person %>
+<h2 class='text-2xl font-medium text-center mb-2 text-blue-500'>Details</h2>
 <%= render @person.details %>
+<%= link_to 'Add new detail', new_person_detail_path(@person), class: 'block min-w-full bg-lime-500 px-4 py-2 mt-2 text-center text-white cursor-pointer' %>

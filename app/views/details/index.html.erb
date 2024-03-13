@@ -1,9 +1,11 @@
-<div id="details">
-  <% if @details.present? %>
-    <% @details.each do |detail| %>
-      <%= render detail %>
-    <% end %>
-  </div>
-<% else %>
-  <div class='inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-yellow-800 ring-1 ring-inset ring-yellow-600/20'>Details not available</div>
+<%= turbo_frame_tag('details') do %>
+  <div id="details">
+    <% if @details.present? %>
+      <% @details.each do |detail| %>
+        <%= render detail %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class='inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-yellow-800 ring-1 ring-inset ring-yellow-600/20'>Details not available</div>
+  <% end %>
 <% end %>

@@ -25,7 +25,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.save
         format.html { redirect_to person_url(@person), notice: 'Detail was successfully created.' }
-        format.json { render :show, status: :created, location: @detail }
+        format.json { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @detail.errors, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class DetailsController < ApplicationController
     respond_to do |format|
       if @detail.update(detail_params)
         format.html { redirect_to person_url(@person), notice: 'Detail was successfully updated.' }
-        format.json { render :show, status: :ok, location: @detail }
+        format.json { render :show, status: :ok }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @detail.errors, status: :unprocessable_entity }

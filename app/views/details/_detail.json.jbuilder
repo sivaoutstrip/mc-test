@@ -1,2 +1,1 @@
-json.extract! detail, :id, :created_at, :updated_at
-json.url detail_url(detail, format: :json)
+json.extract! detail, :id, :email, :phone, :created_at, :updated_at

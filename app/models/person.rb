@@ -15,9 +15,12 @@ class Person < ApplicationRecord
   has_many :details, inverse_of: :person, dependent: :destroy
   accepts_nested_attributes_for :details, allow_destroy: true
 
+  normalizes :name, with: ->(name) { name.squish.strip }
+
   enum title: { 'Dr.': 'Dr.', 'Mr.': 'Mr.', 'Ms.': 'Ms.', 'Mrs.': 'Mrs.', 'Prof.': 'Prof.' }
 
-  validates :title, inclusion: { in: titles.values }, allow_nil: true
-  validates_associated :details
   validates :name, presence: true, length: { in: 2..72 }
+  validates :title, inclusion: { in: titles.values }, allow_nil: true
+  validates :age, numericality: { only_integer: true, in: 1..100 }, allow_nil: true
+  validates_associated :details
 end

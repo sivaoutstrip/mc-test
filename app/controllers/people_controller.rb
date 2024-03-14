@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 class PeopleController < ApplicationController
-  before_action :set_person, only: %i[show edit update destroy details]
+  before_action :set_person, only: %i[show edit update destroy]
 
   # GET /people or /people.json
   def index
     @people = Person.all.order(created_at: :desc)
-  end
-
-  def details
-    @details = @person.details
   end
 
   # GET /people/1 or /people/1.json

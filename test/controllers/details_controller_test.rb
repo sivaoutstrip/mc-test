@@ -16,6 +16,16 @@ class DetailsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should redirect to people url if person is invalid' do
+    get new_person_detail_url('10010001')
+    assert_redirected_to people_url
+  end
+
+  test 'should display errors if person not valid' do
+    post person_details_url(@person), params: { detail: { email: '' } }
+    assert_response :unprocessable_entity
+  end
+
   test 'should create detail' do
     assert_difference('Detail.count') do
       post person_details_url(@person), params: { detail: { email: 'george.vi@rails.ruby' } }
@@ -29,14 +39,24 @@ class DetailsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should redirect to people url if detail is invalid' do
+    get person_detail_url(@person, '10010001')
+    assert_redirected_to people_url
+  end
+
   test 'should get edit' do
     get edit_person_detail_url(@person, @detail)
     assert_response :success
   end
 
   test 'should update detail' do
-    patch person_detail_url(@person, @detail), params: { detail: { age: 99 } }
+    put person_detail_url(@person, @detail), params: { detail: { email: 'hello@hello.hello' } }
     assert_redirected_to person_url(@person)
+  end
+
+  test 'should return error message if email is empty' do
+    put person_detail_url(@person, @detail), params: { detail: { email: 'hello' } }
+    assert_response :unprocessable_entity
   end
 
   test 'should destroy detail' do

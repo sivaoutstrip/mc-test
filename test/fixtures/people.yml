@@ -18,10 +18,8 @@ one:
   name: Steve
   age: 20
   title: Dr.
-# column: value
 #
 two:
   name: Harry
   age: 23
   title: Mr.
-# column: value

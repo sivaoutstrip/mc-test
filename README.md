@@ -1,24 +1,25 @@
-# README
+## People / Person Model
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Attributes
 
-Things you may want to cover:
+* Name *
+* Age
+* Title 
 
-* Ruby version
+has many details, accepts nested attributes, dependent destroy, allow nil and destroy
 
-* System dependencies
+## Details Model
 
-* Configuration
+### Attributes
 
-* Database creation
+* Email *
+* Phone
 
-* Database initialization
+belongs to person
 
-* How to run the test suite
+# For test coverage
 
-* Services (job queues, cache servers, search engines, etc.)
+* rails test test/controllers
+* rails test test/models
 
-* Deployment instructions
-
-* ...
+`open coverage/index.html`
